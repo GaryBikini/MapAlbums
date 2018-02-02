@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.3&key=5fbe42ba27706a2f9b8bb63c2891b197"></script>
+    <style>
+        #boxMap {
+            position: fixed;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+
+    </style>
+
+  
+</head>
+<body>
+    <div id="boxMap">
+
+    </div>
+
+    <script>
+        var map = new AMap.Map('boxMap', {
+            resizeEnable: true,
+            zoom: 11,
+            center: [116.397428, 39.90923]
+        });
+    </script>
+</body>
+</html>

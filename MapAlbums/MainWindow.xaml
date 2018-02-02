@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MapAlbums"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+        xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525"
         WindowStartupLocation="CenterScreen"
@@ -17,37 +19,30 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}"
+        FontFamily="{DynamicResource MaterialDesignFont}" Loaded="Window_Loaded"
                    
         
         >
-    <Grid>
-        <TabControl>
-            <TabItem>
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <!--<Iemage Source="/WpfTutorialSamples;component/Images/bullet_blue.png" />-->
-                        <TextBlock Text="Blue" Foreground="Blue" />
-                    </StackPanel>
-                </TabItem.Header>
-                <Label Content="Content goes here..." />
-            </TabItem>
-            <TabItem>
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <!--<Image Source="/WpfTutorialSamples;component/Images/bullet_red.png" />-->
-                        <TextBlock Text="Red" Foreground="Red" />
-                    </StackPanel>
-                </TabItem.Header>
-            </TabItem>
-            <TabItem>
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <!--<Image Source="/WpfTutorialSamples;component/Images/bullet_green.png" />-->
-                        <TextBlock Text="Green" Foreground="Green" />
-                    </StackPanel>
-                </TabItem.Header>
-            </TabItem>
-        </TabControl>
-    </Grid>
+    <dragablz:TabablzControl>
+        <dragablz:TabablzControl.InterTabController>
+            <dragablz:InterTabController />
+        </dragablz:TabablzControl.InterTabController>
+        <TabItem Header="MAP">
+            <cefSharp:ChromiumWebBrowser
+        x:Name="ChromiumWebBrowser"
+        Address="C:/Users/Jerry/Source/Repos/MapAlbums/MapAlbums/assets/src/index.html" 
+                
+                />
+            <!--<WebBrowser Margin="-20" Source="C:\Users\Jerry\Source\Repos\MapAlbums\MapAlbums\assets\src\index.html"/>-->
+        </TabItem>
+        <TabItem Header="PHOTOS">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">PHOTOS</TextBlock>
+        </TabItem>
+        <TabItem Header="SETTINGS">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">SETTINGS</TextBlock>
+        </TabItem>
+        
+    </dragablz:TabablzControl>
+
+    
 </Window>
